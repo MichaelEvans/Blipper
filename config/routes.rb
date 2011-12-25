@@ -11,8 +11,14 @@ Blipper::Application.routes.draw do
   resources :sessions
   resources :blips
   resources :users
-
+  
+  match "/:username" => 'home#show', :as => "user_blips"
+  match "/:username/toggle_follow" => 'home#toggle_follow', :as => "toggle_follow"
+  
+  
   root :to => 'home#index'
+  
+  
   
   #match '' => 'home#index' 
   # The priority is based upon order of creation:

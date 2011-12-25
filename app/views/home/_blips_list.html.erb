@@ -1,0 +1,9 @@
+<ul>
+	<% blips.each do |blip| %>
+	<li>
+		<%= link_to blip.user.username %>
+		<%= h blip.message %>
+		<%= distance_of_time_in_words_to_now(blip.created_at) %> ago
+	</li>
+	<% end %>
+</ul>

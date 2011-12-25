@@ -1,19 +1,19 @@
 <%# title "Welcome #{current_user.username}"%>
 
 <div class="well">
-	<h1><%= "Welcome #{current_user.username}"%></h1>
+	<h1><%= "Welcome #{current_user.username}!"%></h1>
 	<%= form_for Blip.new do |b| %>
 		<div class="clearfix">
 			<%= b.text_area :message, :class => "xxlarge", :rows => 3 %>
+		</div>
+		<div class="clearfix">
+			<%= h "Latest message: #{current_user.blips.last.message}" %>
 		</div>
 		<div class="clearfix">
 			<%= b.submit "Post", :class => "btn primary" %>
 		</div>
 	<% end %>
 	
-<ul>
-	<% current_user.blips.reverse.each do |blip| %>
-	<li><%= h blip.message %></li>
-	<% end %>
-</ul>
+<%= render :partial => "blips_list", :locals => { :blips => @blips } %>
+
 </div>

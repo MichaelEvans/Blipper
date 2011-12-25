@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
     end
   end
   
+  def all_blips #TODO Cache this
+    Blip.find(:all, :conditions => ["user_id in (?)", friends.map(&:id).push(self.id)], :order => "created_at desc")
+  end
+  
   # login can be either username or email address
   def self.authenticate(login, pass)
     user = find_by_username(login) || find_by_email(login)
