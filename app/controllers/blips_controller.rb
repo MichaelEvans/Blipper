@@ -1,0 +1,2 @@
+class BlipsController < ApplicationController
+end
