@@ -18,6 +18,7 @@ while User.count < 10 do
   user.email = Faker::Internet.email
   user.password = "test"
   user.password_confirmation = "test"
+  user.phone_number = Faker::PhoneNumer.phone_number
   user.save
 end
 
