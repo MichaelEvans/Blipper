@@ -4,7 +4,7 @@ class SmsController < ApplicationController
     req = ActiveSupport::JSON.decode(request.body)
     #user = User.find_by_phone_number(params[:senderAddress])
     #incoming_message = Smsified::IncomingMessage.new request
-    incoming_message2 = Smsified::IncomingMessage.new request.body
+    incoming_message2 = Smsified::IncomingMessage.new req
     #logger.info { "SMS1: #{incoming_message['message']}"}
     logger.info { "SMS2: #{incoming_message2['message']}"}
     logger.info { "SMS Recieved  #{req}" }
