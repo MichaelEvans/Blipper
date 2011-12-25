@@ -1,5 +1,7 @@
-<% title "Sign up" %>
+<%# title "Sign up" %>
+<div class="well">
+	<h1>Sign Up</h1>
+	<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
 
-<p>Already have an account? <%= link_to "Log in", login_path %>.</p>
-
-<%= render 'form' %>
+	<%= render 'form' %>
+</div>

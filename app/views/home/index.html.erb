@@ -7,7 +7,9 @@
 			<%= b.text_area :message, :class => "xxlarge", :rows => 3 %>
 		</div>
 		<div class="clearfix">
-			<%= h "Latest message: #{current_user.blips.last.message}" %>
+			<% if current_user.blips.count > 0 %>
+				<%= h "Latest message: #{current_user.blips.last.message}" %>
+			<% end %>
 		</div>
 		<div class="clearfix">
 			<%= b.submit "Post", :class => "btn primary" %>

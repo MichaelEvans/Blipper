@@ -1,4 +1,16 @@
+<% if @user.eql? current_user %>
+	redirect_to root_path
+<% end %>
 <div class="well">
 	<h1><%= @user.username %></h1>
+	
+	<%= form_tag toggle_follow_path do %>
+		<% if current_user.is_friend? @user %>
+			<%= submit_tag "Following", :class => "btn" %>
+		<% else %>
+			<%= submit_tag "Not Following", :class => "btn" %>
+		<% end %>
+	<% end %>
+	
 	<%= render :partial => "blips_list", :locals => { :blips => @blips } %>
 </div>
