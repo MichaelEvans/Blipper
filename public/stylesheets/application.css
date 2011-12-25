@@ -17,7 +17,10 @@ a {
   height: 0;
   overflow: hidden;
 }
-
+.container{
+	width: 960px;
+	
+}
 #container {
   width: 75%;
   margin: 0 auto;

@@ -1,15 +1,26 @@
-<% title "Log in" %>
-
-<p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
-
-<%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :login, "Username or Email Address" %><br />
-    <%= text_field_tag :login, params[:login] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </p>
-  <p><%= submit_tag "Log in" %></p>
-<% end %>
+<div class="row" style="margin:auto">
+	<div class="span11 offset2">
+		<div class="well">
+			<h1 class="jumbotron masthead" id="overview">Log in</h1>
+			<p>
+				Don't have an account? <%= link_to "Sign up!", signup_path %>
+			</p>
+			<fieldset>
+			<%= form_tag sessions_path do %>
+				<div class="clearfix">
+					<%= label_tag :login, "Username: " %>
+					<%= text_field_tag :login, params[:login] %>
+				</div>
+				<div class="clearfix">
+					<%= label_tag :password, "Password: " %>
+					<%= password_field_tag :password %>
+				</div>
+				<div class="buttons" style="margin-left:70px">
+					<%= submit_tag "Log in", :class => "btn primary" %>
+					<%= link_to "Sign up!", signup_path, :class => "btn" %>
+				</div>
+			<% end %>
+			</fieldset>
+		</div>
+	</div>
+</div>
