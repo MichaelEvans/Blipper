@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username
   validates_uniqueness_of :username, :email, :allow_blank => true
-  validates_format_of :username, :with => /^[-\w\._@]+$/i, :allow_blank => true, :message => "should only contain letters, numbers, or .-_@"
+  validates_format_of :username, :with => /^[-\w_@]+$/i, :allow_blank => true, :message => "should only contain letters, numbers, or .-_@"
   validates_format_of :email, :with => /^[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}$/i
   validates_presence_of :password, :on => :create
   validates_confirmation_of :password
@@ -22,6 +22,17 @@ class User < ActiveRecord::Base
     if !friendship.save
       logger.debug "User '#{friend.email}' already exists in the user's friendship list"
     end
+  end
+  
+  def remove_friend(friend)
+      friendship = Friendship.find(:first, :conditions => ["user_id = ? and friend_id = ?", self.id, friend.id])
+      if friendship
+        friendship.destroy
+      end
+  end
+  
+  def is_friend?(friend)
+    return self.friends.include? friend
   end
   
   def all_blips #TODO Cache this
