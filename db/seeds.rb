@@ -9,7 +9,7 @@
 require 'faker'
 require 'populator'
 
-User.destroy_all
+#User.destroy_all
 
 
 while User.count < 10 do
