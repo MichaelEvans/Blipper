@@ -9,6 +9,7 @@ gem 'sqlite3'
 
 gem 'json'
 
+gem "smsified"
 gem "ruby-debug"
 gem "nifty-generators", :group => :development
 gem "faker"
