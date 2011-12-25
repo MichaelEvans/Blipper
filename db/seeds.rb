@@ -11,7 +11,8 @@ require 'populator'
 
 User.destroy_all
 
-10.times do
+
+while User.count < 10 do
   user = User.new
   user.username = Faker::Internet.user_name
   user.email = Faker::Internet.email
