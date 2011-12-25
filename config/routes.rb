@@ -15,6 +15,7 @@ Blipper::Application.routes.draw do
   match "/:username" => 'home#show', :as => "user_blips"
   match "/:username/toggle_follow" => 'home#toggle_follow', :as => "toggle_follow"
   
+  match "/sms/in" => "sms#in"
   
   root :to => 'home#index'
   
