@@ -2,7 +2,9 @@ class SmsController < ApplicationController
 
   def in
     #test = JSON.parse(params)
-    logger.info { "TEST: #{params[:sm]}"}
+    sm = params[:sm]
+    ismn = sm[:inboundSMSMessageNotification]
+    logger.info { "M: #{JSON.pretty_generate(ismn)}"}
     #req = ActiveSupport::JSON.decode(params)
     #user = User.find_by_phone_number(params[:senderAddress])
     #incoming_message = Smsified::IncomingMessage.new params
