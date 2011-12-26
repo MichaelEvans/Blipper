@@ -12,7 +12,7 @@ class SmsController < ApplicationController
     #logger.info { "As Params Phone number: #{params[:senderAddress]} with message #{params[:message]}"}
     user = User.find_by_phone_number(number)
     if user
-      blip = user.blips.build(:message => params[:message])
+      blip = user.blips.build(:message => message)
     #        #flit.message = flit.message[0..140]
       blip.created_at = Time.now # HACK
       blip.save!
