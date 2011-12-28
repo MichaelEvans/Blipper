@@ -1,14 +1,11 @@
-<% if @user.eql? current_user %>
-	redirect_to root_path
-<% end %>
 <div class="well">
 	<h1><%= @user.username %></h1>
 	
 	<%= form_tag toggle_follow_path do %>
 		<% if current_user.is_friend? @user %>
-			<%= submit_tag "Following", :class => "btn" %>
+			<%= submit_tag "Unfollow", :class => "btn danger" %>
 		<% else %>
-			<%= submit_tag "Not Following", :class => "btn" %>
+			<%= submit_tag "Follow", :class => "btn primary" %>
 		<% end %>
 	<% end %>
 	
